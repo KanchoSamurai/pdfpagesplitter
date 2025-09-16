@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Page Splitter — Free, Private, In‑Browser</title>
+  <meta name="description" content="Split or extract pages from a PDF instantly. 100% private — files never leave your device. Free, fast, no watermark.">
+  <link rel="stylesheet" href="style.css" />
+  <!-- pdf-lib for client-side PDF editing -->
+  <script defer src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">PDFPageSplitter<span class="dot">.com</span></a>
+      <nav class="nav">
+        <a href="/blog.html">Blog</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Split &amp; Extract PDF Pages — Free &amp; Private</h1>
+      <p class="sub">Process happens <strong>entirely in your browser</strong>. <em>No uploads. No storage. No watermarks.</em></p>
+
+      <div class="uploader" id="dropZone">
+        <input type="file" id="fileInput" accept="application/pdf" />
+        <p><strong>Choose a PDF</strong> (or drag &amp; drop)</p>
+        <small class="hint">Large files are fine; processing is local on your device.</small>
+      </div>
+
+      <div id="controls" class="controls hidden">
+        <div class="row">
+          <label for="ranges"><strong>Pages to extract</strong></label>
+          <input id="ranges" type="text" placeholder="e.g. 1-3, 5, 7-9" />
+        </div>
+        <div class="row">
+          <button id="extractBtn" class="btn primary">Extract selected pages</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+        <p class="hint">Leave blank to export <strong>all pages</strong>. Ranges are inclusive.</p>
+      </div>
+
+      <div id="fileMeta" class="meta hidden"></div>
+      <div id="status" class="status" role="status"></div>
+    </section>
+
+    <section class="card note">
+      <h2>Your Privacy</h2>
+      <p>We don’t send your files anywhere. This tool uses client‑side processing (<code>pdf-lib</code>) so your PDFs never leave your device. We don’t keep copies, we don’t log content, and there’s no server‑side processing.</p>
+      <p>See our <a href="/privacy.html">Privacy page</a> for details.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> PDFPageSplitter.com — Free, private PDF tools.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
